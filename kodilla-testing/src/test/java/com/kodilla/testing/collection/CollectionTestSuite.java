@@ -38,6 +38,6 @@ public class CollectionTestSuite {
         // When
         oddNumbersExterminator.exterminate(list);
         // Then
-        Assertions.assertEquals(list.get(2), newList.get(2));
+        Assertions.assertEquals(list.get(1), newList.get(0));
     }
 }
