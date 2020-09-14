@@ -30,20 +30,29 @@ public class ShapeCollectorTestSuite {
         void testAddFigure() {
             //Given
             ShapeCollector shapeInCollection = new ShapeCollector();
+            Circle circle = new Circle();
+            Triangle triangle = new Triangle();
             //When
-            shapeInCollection.addFigure("Circle");
+            shapeInCollection.addFigure(circle);
+            shapeInCollection.addFigure(triangle);
             //Then
-            Assertions.assertEquals("Circle", shapeInCollection);
+            Assertions.assertEquals(circle, shapeInCollection.getFigure(0));
+            Assertions.assertEquals(triangle, shapeInCollection.getFigure(1));
         }
 
         @Test
         void testRemoveFigure() {
             //Given
             ShapeCollector shapeInCollection = new ShapeCollector();
+            Circle circle = new Circle();
+            Triangle triangle = new Triangle();
+            shapeInCollection.addFigure(circle);
+            shapeInCollection.addFigure(triangle);
             //When
-            shapeInCollection.removeFigure("Circle");
+            shapeInCollection.removeFigure(circle);
             //Then
-            Assertions.assertNotEquals("Circle", shapeInCollection);
+            Assertions.assertEquals(triangle, shapeInCollection.getFigure(0));
+            Assertions.assertNull(shapeInCollection.getFigure(1));
         }
 
     }
@@ -54,15 +63,27 @@ public class ShapeCollectorTestSuite {
         @Test
         void testGetFigure(){
             //Given
+            ShapeCollector shapeInCollection = new ShapeCollector();
+            Circle circle = new Circle();
+            Triangle triangle = new Triangle();
             //When
+            shapeInCollection.addFigure(circle);
+            shapeInCollection.addFigure(triangle);
             //Then
+            Assertions.assertEquals(shapeInCollection.getFigure(1), triangle);
         }
 
         @Test
         void testShowFigures(){
             //Given
+            ShapeCollector shapeInCollection = new ShapeCollector();
+            Circle circle = new Circle();
+            Triangle triangle = new Triangle();
             //When
+            shapeInCollection.addFigure(circle);
+            shapeInCollection.addFigure(triangle);
             //Then
+            shapeInCollection.showFigures();
         }
     }
 }
