@@ -8,10 +8,9 @@ public class OddNumbersExterminator {
 
         List<Integer> evenNumbers = new ArrayList<Integer>();
 
-        int n = 0;
-        for(n = 0; n <= numbers.size(); n++) {
-            if (n % 2 == 0) {
-                evenNumbers.add(n);
+        for(int n = 0; n < numbers.size(); n++) {
+            if (numbers.get(n) % 2 == 0) {
+                evenNumbers.add(numbers.get(n));
             }
         }
 

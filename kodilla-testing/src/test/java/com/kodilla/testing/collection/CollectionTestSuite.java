@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class CollectionTestSuite {
     @BeforeEach
@@ -36,9 +37,9 @@ public class CollectionTestSuite {
         ArrayList<Integer> newList = new ArrayList<>(Arrays.asList(2, 4));
         ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         // When
-        oddNumbersExterminator.exterminate(list);
+        List<Integer> exterminate = oddNumbersExterminator.exterminate(list);
         // Then
-        //Assertions.assertArrayEquals(newList.toArray(), list.toArray());
-        System.out.println(newList.get(0) + " oraz druga lista: \n"+ list.get(0));
+        Assertions.assertEquals(newList, exterminate);
+
     }
 }
