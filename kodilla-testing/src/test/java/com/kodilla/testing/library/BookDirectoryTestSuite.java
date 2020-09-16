@@ -93,28 +93,40 @@ class BookDirectoryTestSuite {
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        List<Book> resultListOf0Books = generateListOfNBooks(0);
-        // When
-        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOfUser(0);
         LibraryUser mateusz95 = new LibraryUser("Mateusz", "Wójciak", "95000000");
+        List<Book> resultListOf0Books = generateListOfNBooks(0);
+        when(libraryDatabaseMock.listBooksInHandsOf(mateusz95)).thenReturn(resultListOf0Books);
+        // When
+        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(mateusz95);
         //Then
         assertEquals(0, theListOfBooks0.size());
-        verify(libraryDatabaseMock, never()).listBooksInHandsOf(mateusz95);
     }
 
     @Test
     void testUserWithOneBook(){
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        //When
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser mateusz95 = new LibraryUser("Mateusz", "Wójciak", "95000000");
+        List<Book> resultListOf0Books = generateListOfNBooks(1);
+        when(libraryDatabaseMock.listBooksInHandsOf(mateusz95)).thenReturn(resultListOf0Books);
+        // When
+        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(mateusz95);
         //Then
+        assertEquals(1, theListOfBooks0.size());
     }
 
     @Test
     void testUserWithFiveBooks(){
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        //When
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser mateusz95 = new LibraryUser("Mateusz", "Wójciak", "95000000");
+        List<Book> resultListOf0Books = generateListOfNBooks(5);
+        when(libraryDatabaseMock.listBooksInHandsOf(mateusz95)).thenReturn(resultListOf0Books);
+        // When
+        List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOf(mateusz95);
         //Then
+        assertEquals(5, theListOfBooks0.size());
     }
 }
