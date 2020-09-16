@@ -52,7 +52,8 @@ public class ShapeCollectorTestSuite {
             shapeInCollection.removeFigure(circle);
             //Then
             Assertions.assertEquals(triangle, shapeInCollection.getFigure(0));
-            Assertions.assertNull(shapeInCollection.getFigure(1));
+            //Assertions.assertNull(shapeInCollection.getFigure(1));
+            Assertions.assertEquals(null, shapeInCollection.getFigure(1));
         }
 
     }
