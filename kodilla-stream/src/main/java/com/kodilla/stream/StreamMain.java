@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.Executor;
 import com.kodilla.stream.lambda.Processor;
 import com.kodilla.stream.lambda.ExpressionExecutor;
@@ -29,5 +30,8 @@ public class StreamMain {
         poemBeautifier.beautify("to powinien być tekst pisany wielkimi literami", textToBeautifier -> textToBeautifier.toUpperCase());
         poemBeautifier.beautify("TO POWINIEN BYC TEKST PISANY MALYMI LITERAMI", textToBeautifier -> textToBeautifier.toLowerCase());
         poemBeautifier.beautify("TO POWINIEN BYC TEKST PISANY MALYMI LITERAMI", textToBeautifier -> textToBeautifier.replaceFirst("TEKST", "-- ta czesc zostala ocenzurowana --"));
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
 }
