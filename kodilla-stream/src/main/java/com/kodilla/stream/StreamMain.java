@@ -1,37 +1,27 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.Executor;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.forumuser.*;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.time.Period.between;
 
 public class StreamMain {
     public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
+        Forum forum = new Forum();
 
-        System.out.println("Calculating expressions with lambdas:");
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10,5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
+        Map theResultStringOfUserMap = forum.getList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getNumberOfPosts() > 1)
+                .filter(forumUser -> {
+                    Period period = Period.between(forumUser.getBirthDate(), LocalDate.now());
+                    int ageOfUser = period.getYears();
+                    return ageOfUser >= 20;})
+                .collect(Collectors.toMap(ForumUser::getUserId, ForumUser::getUsername));
 
-        System.out.println("Calculating expressions with method reference:");
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3,4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3,4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3,4, FunctionalCalculator::divideAByB);
-
-        //7.1 Homework
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-
-        System.out.println("Homework below:");
-        poemBeautifier.beautify("to powinien być tekst pisany wielkimi literami", textToBeautifier -> textToBeautifier.toUpperCase());
-        poemBeautifier.beautify("TO POWINIEN BYC TEKST PISANY MALYMI LITERAMI", textToBeautifier -> textToBeautifier.toLowerCase());
-        poemBeautifier.beautify("TO POWINIEN BYC TEKST PISANY MALYMI LITERAMI", textToBeautifier -> textToBeautifier.replaceFirst("TEKST", "-- ta czesc zostala ocenzurowana --"));
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+        System.out.println(theResultStringOfUserMap);
     }
 }
