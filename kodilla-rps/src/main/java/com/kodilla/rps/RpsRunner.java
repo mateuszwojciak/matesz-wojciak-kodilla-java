@@ -29,27 +29,23 @@ public class RpsRunner {
         System.out.println("Make your move:");
 
         String playerMove = sc.nextLine().toUpperCase();
-        boolean playerWon;
-        String win;
+        boolean playerWon = false;
         int countWinsOfPlayer = 0;
 
-        if (playerMove.equals("1") || playerMove.equals("2") || playerMove.equals("3")) {
-            if (playerWon = true) {
-                for (int k = 0; k <= numberOfGames - 1; k++) {
+        for (int k = 0; k <= numberOfGames - 1; k++) {
+            if (playerMove.equals("1") || playerMove.equals("2") || playerMove.equals("3")) {
+                if (k <= numberOfGames - 2) {
                     startGame(generateRandomCPUMove(), playerMove);
-                    if (k <= numberOfGames - 2) {
-                        System.out.println("Make a move to win: ");
-                        playerMove = sc.nextLine().toUpperCase();
-                    }
+                    System.out.println("Make a move to win: ");
+                    playerMove = sc.nextLine().toUpperCase();
                 }
-                countWinsOfPlayer++;
+            } else {
+                System.out.println("Invalid input.");
             }
-        } else {
-            System.out.println("Invalid input.");
         }
 
         //Summing up game
-        System.out.println("Player wins " + countWinsOfPlayer + " times: "
+        System.out.println("Player wins " + countWinsOfPlayer + " time(s)."
                 + "\nWhat to do next? Press 'n' or 'x'.");
 
         String whatNext = sc.nextLine().toLowerCase();
