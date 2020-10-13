@@ -13,7 +13,7 @@ public class SearchFlightRunner {
         try {
             searchFlight.findFlight("Lodz");
         } catch (RouteNotFoundException exception) {
-            System.out.println("Caught exception: " + exception);
+            System.out.println("Exception: " + exception);
         }
     }
 }

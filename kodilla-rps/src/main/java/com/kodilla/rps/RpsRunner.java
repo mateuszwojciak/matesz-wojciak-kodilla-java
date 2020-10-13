@@ -1,9 +1,9 @@
 package com.kodilla.rps;
 
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class RpsRunner {
+    public static boolean ifPlayerWon;
     String rock = "1";
     String paper = "2";
     String scissors = "3";
@@ -27,91 +27,43 @@ public class RpsRunner {
                 "Button 'n' - Start new game");
 
         System.out.println("Make your move:");
+        String playerMove = sc.nextLine();
 
-        String playerMove = sc.nextLine().toUpperCase();
-        boolean playerWon = false;
-        int countWinsOfPlayer = 0;
+        RandomComputerMove randomComputerMove = new RandomComputerMove();
+        GameLogic gameLogic = new GameLogic();
 
-        for (int k = 0; k <= numberOfGames - 1; k++) {
+        int countWins = 0;
+        int k = 1;
+
+        while (k <= numberOfGames - 1) {
             if (playerMove.equals("1") || playerMove.equals("2") || playerMove.equals("3")) {
-                if (k <= numberOfGames - 2) {
-                    startGame(generateRandomCPUMove(), playerMove);
-                    System.out.println("Make a move to win: ");
-                    playerMove = sc.nextLine().toUpperCase();
+                gameLogic.startGame(randomComputerMove.generateRandomCPUMove(), playerMove);
+                System.out.println("Make a move to win: ");
+                playerMove = sc.nextLine().toUpperCase();
+                k++;
+
+                if (ifPlayerWon) {
+                    countWins++;
                 }
+
             } else {
                 System.out.println("Invalid input.");
+                playerMove = sc.nextLine();
             }
         }
 
         //Summing up game
-        System.out.println("Player wins " + countWinsOfPlayer + " time(s)."
+        System.out.println("Player wins " + countWins + " time(s)."
                 + "\nWhat to do next? Press 'n' or 'x'.");
 
         String whatNext = sc.nextLine().toLowerCase();
 
         if (whatNext.equals("n")) {
             System.out.println("New game loading...");
-
         } else if (whatNext.equals("x")) {
             System.out.println("End game.");
         } else {
             System.out.println("Invalid input. Game ended.");
-        }
-    }
-
-    private static String generateRandomCPUMove() {
-        int randomInt = ThreadLocalRandom.current().nextInt(1, 4);
-
-        RpsRunner rpsRunner = new RpsRunner();
-
-        String computerMove = null;
-
-        switch (randomInt) {
-            case 1:
-                computerMove = rpsRunner.rock;
-                break;
-            case 2:
-                computerMove = rpsRunner.paper;
-                break;
-            case 3:
-                computerMove = rpsRunner.scissors;
-                break;
-        }
-        return computerMove;
-    }
-
-    private static void startGame(String computerMove, String playerMove) {
-        String win;
-        String lose;
-        if (computerMove.equals(playerMove)) {
-            System.out.println("It`s a draw!");
-        } else {
-            boolean playerWon = false;
-
-            if (computerMove.equals("1")) {
-                if (playerMove.equals("2"))
-                    playerWon = true;
-                else
-                    playerWon = false;
-            } else if (computerMove.equals("2")) {
-                if (playerMove.equals("3"))
-                    playerWon = true;
-                else
-                    playerWon = false;
-            } else if (computerMove.equals("3")) {
-                if (playerMove.equals("1"))
-                    playerWon = true;
-                else
-                    playerWon = false;
-            }
-            if (playerWon) {
-                win = "You win. ";
-                System.out.println(win + "You choose: " + playerMove + " and computer choose: " + computerMove + ".");
-            } else {
-                lose = "You lose. ";
-                System.out.println(lose + "You choose: " + playerMove + " and computer choose: " + computerMove + ".");
-            }
         }
     }
 }
