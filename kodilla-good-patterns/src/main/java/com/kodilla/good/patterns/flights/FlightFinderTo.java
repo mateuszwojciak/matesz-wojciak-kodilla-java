@@ -4,18 +4,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class FlightFinderTo {
-    Set<Flight> cities = new HashSet<>();
+    Set<Flight> citiesTo = new HashSet<>();
 
     public Set<Flight> citiesFindTo(Set<Flight> theSetOfFlights, String airportname) {
         theSetOfFlights.stream()
                 .filter(n -> n.getArrival().equals(airportname))
-                .forEach(cities::add);
+                .forEach(citiesTo::add);
 
-        return cities;
+        return citiesTo;
     }
 
-    public Set<Flight> getCities() {
-        return cities;
+    public Set<Flight> getCitiesTo() {
+        return citiesTo;
     }
 
 }

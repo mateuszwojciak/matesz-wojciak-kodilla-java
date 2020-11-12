@@ -19,6 +19,6 @@ public class Application {
         System.out.println(flightFinderTo.citiesFindTo(list, "Lodz"));
 
         System.out.println("Poniżej lista lotów z przesiadką z Warszawy do Lodzi: \n");
-        flightFinderConnection.findFlightConnection(list, "Warszawa", "Lodz");
+        flightFinderConnection.FlightFinderConnection(list, "Warszawa", "Lodz");
     }
 }
