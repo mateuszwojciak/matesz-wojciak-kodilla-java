@@ -25,7 +25,7 @@ public class ShapeCollectorTestSuite {
 
     @Nested
     @DisplayName("Tests for editing the List")
-    class EditingList{
+    class EditingList {
         @Test
         void testAddFigure() {
             //Given
@@ -62,7 +62,7 @@ public class ShapeCollectorTestSuite {
     @DisplayName("Tests for getting from the List")
     class GettingFromList {
         @Test
-        void testGetFigure(){
+        void testGetFigure() {
             //Given
             ShapeCollector shapeInCollection = new ShapeCollector();
             Circle circle = new Circle();
@@ -75,7 +75,7 @@ public class ShapeCollectorTestSuite {
         }
 
         @Test
-        void testShowFigures(){
+        void testShowFigures() {
             //Given
             ShapeCollector shapeInCollection = new ShapeCollector();
             Circle circle = new Circle();

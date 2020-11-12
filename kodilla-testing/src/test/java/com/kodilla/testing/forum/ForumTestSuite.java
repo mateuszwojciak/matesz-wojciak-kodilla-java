@@ -1,32 +1,36 @@
 package com.kodilla.testing.forum;
+
 import com.kodilla.testing.user.SimpleUser;
 
 import org.junit.jupiter.api.*;
 
 class ForumTestSuite {
     @BeforeEach
-    public void before(){
+    public void before() {
         System.out.println("Test case: begin");
     }
+
     @AfterEach
-    public void after(){
+    public void after() {
         System.out.println("Test case: end");
     }
+
     @BeforeAll
-    public static void beforeAll(){
+    public static void beforeAll() {
         System.out.println("Test Suite: begin");
     }
+
     @AfterAll
-    public static void afterAll(){
+    public static void afterAll() {
         System.out.println("Test Suite: end");
     }
 
     @DisplayName(
             "When created SimpleUser with realName, " +
-            "then getRealName should return real user name"
+                    "then getRealName should return real user name"
     )
     @Test
-    void testCaseRealName(){
+    void testCaseRealName() {
         //Give
         SimpleUser simpleUser = new SimpleUser("TheForumUser", "John Smith");
         //When

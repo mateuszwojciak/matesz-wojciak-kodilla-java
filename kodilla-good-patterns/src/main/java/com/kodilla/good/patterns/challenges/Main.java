@@ -9,7 +9,7 @@ public class Main {
         String moviesMap = movieStore.getMovies()
                 .values().stream()
                 .flatMap(n -> n.stream())
-                .collect(Collectors.joining("!", "",""));
+                .collect(Collectors.joining("!", "", ""));
         System.out.println(moviesMap);
     }
 }

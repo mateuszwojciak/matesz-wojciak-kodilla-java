@@ -1,6 +1,5 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class Application {
@@ -14,14 +13,12 @@ public class Application {
         FlightFinderConnection flightFinderConnection = new FlightFinderConnection();
 
         System.out.println("Poniżej lista wszystkich lotów z Warszawy:\n");
-        flightFinderFrom.findFlightFrom(list, "Warszawa");
+        System.out.println(flightFinderFrom.citiesFindFrom(list, "Warszawa"));
 
         System.out.println("Poniżej lista wszystkich lotów do Lodzi: \n");
-        flightFinderTo.findFlightTo(list, "Lodz");
+        System.out.println(flightFinderTo.citiesFindTo(list, "Lodz"));
 
         System.out.println("Poniżej lista lotów z przesiadką z Warszawy do Lodzi: \n");
         flightFinderConnection.findFlightConnection(list, "Warszawa", "Lodz");
-
     }
-
 }

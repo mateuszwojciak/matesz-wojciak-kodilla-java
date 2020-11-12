@@ -4,13 +4,13 @@ public class Calculator {
     private int a;
     private int b;
 
-    public int add(int a, int b){
+    public int add(int a, int b) {
         this.a = a;
         this.b = b;
         return a + b;
     }
 
-    public int getAdd(){
+    public int getAdd() {
         return a + b;
     }
 
@@ -20,7 +20,7 @@ public class Calculator {
         return a - b;
     }
 
-    public int getSubstraction(){
+    public int getSubstraction() {
         return a - b;
     }
 }

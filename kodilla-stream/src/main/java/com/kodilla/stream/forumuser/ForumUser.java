@@ -12,7 +12,7 @@ public final class ForumUser {
 
     public ForumUser(final int userId, final String username,
                      final char sex, final LocalDate birthDate,
-                     final int numberOfPosts){
+                     final int numberOfPosts) {
         this.userId = userId;
         this.username = username;
         this.sex = sex;
@@ -41,7 +41,7 @@ public final class ForumUser {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "ForumUser - number: " + userId + ", UserName= "
                 + username + ", Sex= " + sex + ", BirthDate= "
                 + birthDate + ", number of posts= " + numberOfPosts;

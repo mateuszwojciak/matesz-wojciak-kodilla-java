@@ -10,7 +10,7 @@ public class OrderProcessor {
     public OrderRequest startProcess(ContractorInterface contractorInterface) {
         boolean isOrdered = contractorInterface.process();
 
-        if(isOrdered) {
+        if (isOrdered) {
             orderRepository.createOrder(contractorInterface.getClass().getSimpleName(),
                     contractorInterface.getProduct(), contractorInterface.getQuantity());
             return new OrderRequest(contractorInterface.getProduct(),

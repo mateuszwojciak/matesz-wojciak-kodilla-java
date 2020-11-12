@@ -1,4 +1,5 @@
 package com.kodilla.testing.collection;
+
 import com.kodilla.testing.collection.OddNumbersExterminator;
 import org.junit.jupiter.api.*;
 
@@ -8,11 +9,12 @@ import java.util.List;
 
 public class CollectionTestSuite {
     @BeforeEach
-    public void before(){
+    public void before() {
         System.out.println("Test case: begin");
     }
+
     @AfterEach
-    public void after(){
+    public void after() {
         System.out.println("Test case: end");
     }
 
@@ -31,7 +33,7 @@ public class CollectionTestSuite {
 
     @DisplayName("Weryfikacja czy klasa zachowuje się poprawnie gdy lista zawiera liczby parzyste i nieparzyste")
     @Test
-    void testOddNumbersExterminatorNormalList(){
+    void testOddNumbersExterminatorNormalList() {
         // Give
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> newList = new ArrayList<>(Arrays.asList(2, 4));

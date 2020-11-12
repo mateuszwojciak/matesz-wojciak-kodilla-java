@@ -19,7 +19,8 @@ public class StreamMain {
                 .filter(forumUser -> {
                     Period period = Period.between(forumUser.getBirthDate(), LocalDate.now());
                     int ageOfUser = period.getYears();
-                    return ageOfUser >= 20;})
+                    return ageOfUser >= 20;
+                })
                 .collect(Collectors.toMap(ForumUser::getUserId, ForumUser::getUsername));
 
         System.out.println(theResultStringOfUserMap);

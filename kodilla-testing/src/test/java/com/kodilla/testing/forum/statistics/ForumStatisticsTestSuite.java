@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+
 import static org.mockito.Mockito.*;
 
 import org.mockito.Mock;
@@ -29,7 +30,7 @@ public class ForumStatisticsTestSuite {
     private Statistics statisticsMock;
 
     @Test
-    void testAveragesWhenZeroPosts(){
+    void testAveragesWhenZeroPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = new ArrayList<>();
@@ -53,7 +54,7 @@ public class ForumStatisticsTestSuite {
     }
 
     @Test
-    void testAveragesWhenThousandPosts(){
+    void testAveragesWhenThousandPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = new ArrayList<>();
@@ -77,7 +78,7 @@ public class ForumStatisticsTestSuite {
     }
 
     @Test
-    void testAveragesWhenZeroComments(){
+    void testAveragesWhenZeroComments() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = new ArrayList<>();
@@ -101,7 +102,7 @@ public class ForumStatisticsTestSuite {
     }
 
     @Test
-    void testAveragesWhenLessCommentsThanPosts(){
+    void testAveragesWhenLessCommentsThanPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = new ArrayList<>();
@@ -125,7 +126,7 @@ public class ForumStatisticsTestSuite {
     }
 
     @Test
-    void testAveragesWhenMoreCommentsThanPosts(){
+    void testAveragesWhenMoreCommentsThanPosts() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = new ArrayList<>();
@@ -149,7 +150,7 @@ public class ForumStatisticsTestSuite {
     }
 
     @Test
-    void testAveragesWhenZeroUsers(){
+    void testAveragesWhenZeroUsers() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = new ArrayList<>();
@@ -169,16 +170,17 @@ public class ForumStatisticsTestSuite {
         Assertions.assertEquals(0, forumStats.averageNumPostsPerUser);
     }
 
-    private List<String> generateUsers(int usersQuantity){
+    private List<String> generateUsers(int usersQuantity) {
         List<String> listOfUsers = new ArrayList<>();
-        for (int n = 1; n <= usersQuantity; n++){
+        for (int n = 1; n <= usersQuantity; n++) {
             String user = new String("Name of the user plus n: " + n);
             listOfUsers.add(user);
         }
         return listOfUsers;
     }
+
     @Test
-    void testAveragesWhenThousandUsers(){
+    void testAveragesWhenThousandUsers() {
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         List<String> userNames = new ArrayList<>();

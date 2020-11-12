@@ -22,6 +22,7 @@ import static org.mockito.Mockito.when;
 class WeatherForecastTestSuite {
 
     private static int testCounter = 0;
+
     @BeforeEach
     public void beforeEveryTest() {
         testCounter++;
@@ -52,8 +53,9 @@ class WeatherForecastTestSuite {
 
     @Mock
     private Temperatures averageTemperaturesMock;
+
     @Test
-    void testAverageTemperatureWithMock(){
+    void testAverageTemperatureWithMock() {
         //Given
         Map<String, Double> averageTemperaturesMap = new HashMap<>();
         averageTemperaturesMap.put("Rzeszow", 10.0);
@@ -67,7 +69,7 @@ class WeatherForecastTestSuite {
         //When
         double quantityOfSensors = weatherForecast.calculateForecast().size();
         double sum = 0;
-        for (double i : averageTemperaturesMap.values()){
+        for (double i : averageTemperaturesMap.values()) {
             sum += i;
         }
         double average = sum / quantityOfSensors;
@@ -78,8 +80,9 @@ class WeatherForecastTestSuite {
 
     @Mock
     private Temperatures medianTemperaturesMock;
+
     @Test
-    void testMedianTemperatureWithMock(){
+    void testMedianTemperatureWithMock() {
         //Given
         Map<String, Double> medianTemperaturesMap = new HashMap<>();
         medianTemperaturesMap.put("Rzeszow", 10.0);

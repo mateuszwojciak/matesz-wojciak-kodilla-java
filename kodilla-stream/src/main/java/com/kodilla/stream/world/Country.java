@@ -7,8 +7,8 @@ public final class Country {
     private final String countryName;
     private final BigDecimal peopleQuantity;
 
-    public Country(final String countryName, final BigDecimal peopleQuantity){
-                this.countryName = countryName;
+    public Country(final String countryName, final BigDecimal peopleQuantity) {
+        this.countryName = countryName;
         this.peopleQuantity = peopleQuantity;
     }
 
@@ -16,7 +16,7 @@ public final class Country {
         return countryName;
     }
 
-    public BigDecimal getPeopleQuantity(){
+    public BigDecimal getPeopleQuantity() {
         return peopleQuantity;
     }
 

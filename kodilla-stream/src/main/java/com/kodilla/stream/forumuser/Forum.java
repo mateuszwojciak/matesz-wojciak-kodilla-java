@@ -24,7 +24,7 @@ public final class Forum {
                 'M', LocalDate.of(1979, 10, 16), 10));
     }
 
-    public List<ForumUser> getList(){
+    public List<ForumUser> getList() {
         return new ArrayList<>(theUserMap);
     }
 

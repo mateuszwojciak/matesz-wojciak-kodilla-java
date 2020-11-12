@@ -14,7 +14,7 @@ public class SearchFlight {
     }
 
     public void findFlight(String searchAirport) throws RouteNotFoundException {
-        if(!flightPlan.containsKey(searchAirport)) {
+        if (!flightPlan.containsKey(searchAirport)) {
             throw new RouteNotFoundException(searchAirport);
         }
         System.out.println("The flight is available.");
