@@ -1,12 +1,10 @@
 package com.kodilla.good.patterns.flights;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class FlightConnection {
     private FlightFinderFrom flightFinderFrom = new FlightFinderFrom();
     private FlightFinderTo flightFinderTo = new FlightFinderTo();
-
 
     public void FlightConnection(Set<Flight> theSetOfFlights, String airportFrom, String airportTo) {
         FlightsList flightsList = new FlightsList();

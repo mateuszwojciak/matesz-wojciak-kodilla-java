@@ -1,14 +1,11 @@
 package com.kodilla.good.patterns.flights;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FlightFinderConnection {
     private FlightFinderFrom flightFinderFrom = new FlightFinderFrom();
     private FlightFinderTo flightFinderTo = new FlightFinderTo();
-
 
     public void findFlightConnection(Set<Flight> theSetOfFlights, String airportFrom, String airportTo) {
         FlightsList flightsList = new FlightsList();
